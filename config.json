@@ -1,0 +1,60 @@
+[
+  {
+    "pathSettings": {
+      "paths": ["./exampleInput/City*.png"],
+      "outputFolder": "./exampleOutput/city"
+    },
+    "subregionSettings": {
+      "placements": ["South"],
+      "mainSizes": [0.4],
+      "crossSizeWeights": [[1.5, 1.0]],
+      "centers": [
+        [
+          [0.35, 0.4],
+          [0.7, 0.7]
+        ]
+      ],
+      "zoomFactors": [[2.5, 3.0]],
+      "lineWidths": [[2.5, 1.5]],
+      "colors": [
+        [
+          [255, 0, 0],
+          [0, 207, 209]
+        ]
+      ]
+    },
+    "drawingSettings": {
+      "fitImages": ["Vertical"],
+      "paddings": [0.075]
+    }
+  },
+  {
+    "pathSettings": {
+      "paths": ["./exampleInput/Face*.png"],
+      "outputFolder": "./exampleOutput/face"
+    },
+    "subregionSettings": {
+      "placements": ["South", "East", "West", "North"],
+      "mainSizes": [0.4],
+      "crossSizeWeights": [[1.5, 1.5]],
+      "centers": [
+        [
+          [0.35, 0.45],
+          [0.7, 0.7]
+        ]
+      ],
+      "zoomFactors": [[2.5, 3.0]],
+      "lineWidths": [[2.5, 1.5]],
+      "colors": [
+        [
+          [0, 0, 204],
+          [255, 215, 0]
+        ]
+      ]
+    },
+    "drawingSettings": {
+      "fitImages": ["Horizontal"],
+      "paddings": [0.075]
+    }
+  }
+]
