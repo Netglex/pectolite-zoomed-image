@@ -12,7 +12,7 @@ Here are some examples which can be made with this script:
 ![FaceExample1](docImage/FaceExample1.svg)
 
 
-### :white_check_mark: Requirements
+### Requirements
 
 In order to run the script, it is **required to install** the necessary packages with `pip`:
 
@@ -20,7 +20,7 @@ In order to run the script, it is **required to install** the necessary packages
 pip install -r requirements.txt
 ```
 
-### :rocket: Quick Start
+### Quick Start
 
 There are already images in the folder *./exampleInput* and a configuration file *./config.json* available. These can be used for a quick test run by running the command:
 
@@ -36,14 +36,17 @@ There are various settings which can be configured with a JSON file. The file *.
 
 The overall structure of the JSON file is an array consisting of `Config` objects. Each config object must contain three subsettings which will be explained in the following subchapters.
 
-### :bike: `pathSettings`
+### `pathSettings`
 
 - `paths`: Absolute or relative path to the images. Wildcards like `*` or `**` can be used as well.
+
   > :information_source: Almost all settings can be indivdually adjusted for each image. This is why these settings are inside nested arrays. If there are less settings available than images, the settings will be automically extended in a repeating fashion.
+
 - `outputFolder`: Folder which will contain the created SVG files. The folder will be created automatically if it does not exist.
+
   > :warning: Newly created SVG files will override existing ones.
 
-### :books: `subregionSettings`
+### `subregionSettings`
 
 - `placements`: Determines where the zoomed areas relative to the image are displayed. Following values are allowed:
 
@@ -61,7 +64,7 @@ The overall structure of the JSON file is an array consisting of `Config` object
 - `lineWidths`: Contains two values for an image. The first value is the line width of the border of the zoomed areas on the side. The second value is the line width of the border of the areas inside the image.
 - `colors`: Contains the color for each zoomed area of an image. The values are given as three integer values ranging from 0 to 255 in an array.
 
-### :fountain_pen: `drawingSettings`
+### `drawingSettings`
 
 - `fitImages`: Fits an image along a specified axis. This also **specifices the unit length**. The image will be scaled accordingly along the other axis.
 
