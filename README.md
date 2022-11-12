@@ -59,7 +59,7 @@ The overall structure of the JSON file is an array consisting of `Config` object
 
 - `mainSizes`: Determines how broad the stripe of the zoomed areas is. The unit is determined by the property `fitImages` in the subsettings `drawSettings`. 
 - `crossSizeWeights`: Ratio of the width of the zoomed areas. 
-- `centers`: Determines the center of all areas in the image. These areas will be zoomed and displayed on the side afterwards. The unit is determined by the property `fitImages` in the subsettings `drawSettings`.
+- `centers`: Determines the center of all areas in the image which will be zoomed. The image has determines the unit size for this property.
 - `zoomFactors`: Determines the zoom factor for each area in the image.
 - `lineWidths`: Contains two values for an image. The first value is the line width of the border of the zoomed areas on the side. The second value is the line width of the border of the areas inside the image.
 - `colors`: Contains the color for each zoomed area of an image. The values are given as three integer values ranging from 0 to 255 in an array.

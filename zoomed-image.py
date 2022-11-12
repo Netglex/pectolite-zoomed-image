@@ -231,9 +231,9 @@ def calculate_zoomed_subregion_rects(
             placement_pos[0] = -main_size - padding
             rect_width = main_size
 
+        total_padding = padding * (len(cross_size_weight) - 1)
         for cross_subsize_weight in cross_size_weight:
             cross_subsize = cross_subsize_weight / cross_size_weight_sum
-            total_padding = padding * (len(cross_size_weight) - 1)
 
             if placement == Placement.North or placement == Placement.South:
                 rect_width = cross_subsize * (image_rect.width - total_padding)
@@ -245,9 +245,9 @@ def calculate_zoomed_subregion_rects(
             )
 
             if placement == Placement.North or placement == Placement.South:
-                placement_pos[0] = rect_width + padding
+                placement_pos[0] += rect_width + padding
             elif placement == Placement.East or placement == Placement.West:
-                placement_pos[1] = rect_height + padding
+                placement_pos[1] += rect_height + padding
 
         zoomed_subregion_rects.append(zoomed_subregion_rect)
 
