@@ -305,7 +305,7 @@ def draw_image(
     img_context.set_source_surface(
         original_img_surface,
         -original_img_width * source_rect.x / image_rect.width,
-        -original_img_width * source_rect.y / image_rect.width,
+        -original_img_height * source_rect.y / image_rect.height,
     )
     img_context.paint()
 
