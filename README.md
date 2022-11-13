@@ -6,10 +6,10 @@ This repository contains a Python script to create a specific kind of figure. Th
 
 Here are some examples which can be made with this script:
 
-![CityExample0](docImage/CityExample0.svg)
-![CityExample1](docImage/CityExample1.svg)  
-![FaceExample0](docImage/FaceExample0.svg)
-![FaceExample1](docImage/FaceExample1.svg)
+![CityExample0](readmeImages/CityExample0.svg)
+![CityExample1](readmeImages/CityExample1.svg)  
+![FaceExample0](readmeImages/FaceExample0.svg)
+![FaceExample1](readmeImages/FaceExample1.svg)
 
 
 ### Requirements
@@ -40,7 +40,7 @@ The overall structure of the JSON file is an array consisting of `Config` object
 
 - `paths`: Absolute or relative path to the images. Wildcards like `*` or `**` can be used as well.
 
-  > :information_source: Almost all settings can be indivdually adjusted for each image. This is why these settings are inside nested arrays. If there are less settings available than images, the settings will be automically extended in a repeating fashion.
+  > :information_source: Almost all settings can be indivdually adjusted for each image. This is why these settings are inside nested arrays. If there are less settings available than images, the settings will be automatically extended in a repeating fashion.
 
 - `outputFolder`: Folder which will contain the created SVG files. The folder will be created automatically if it does not exist.
 
@@ -57,9 +57,10 @@ The overall structure of the JSON file is an array consisting of `Config` object
   | `South` | Below image               |
   | `West`  | Left of image             |
 
-- `mainSizes`: Determines how broad the stripe of the zoomed areas is. The unit is determined by the property `fitImages` in the subsettings `drawSettings`. 
-- `crossSizeWeights`: Ratio of the width of the zoomed areas. 
-- `centers`: Determines the center of all areas in the image which will be zoomed. The image has determines the unit size for this property.
+- `mainSizes`: Determines how broad the stripe of the zoomed areas is. The unit is determined by the property `fitImages` in the subsettings `drawSettings`.
+- `visibilities`: Determines if a zoomed area should be drawn or not.
+- `crossSizeWeights`: Ratio of the width of the zoomed areas.
+- `centers`: Determines the center of all areas in the image which will be zoomed. The image size defines the unit size for this property.
 - `zoomFactors`: Determines the zoom factor for each area in the image.
 - `lineWidths`: Contains two values for an image. The first value is the line width of the border of the zoomed areas on the side. The second value is the line width of the border of the areas inside the image.
 - `colors`: Contains the color for each zoomed area of an image. The values are given as three integer values ranging from 0 to 255 in an array.

@@ -42,6 +42,7 @@ class SubregionSettings:
         ]
         self.main_sizes: list[float] = data["mainSizes"]
         self.cross_size_weigths: list[list[float]] = data["crossSizeWeights"]
+        self.visibilities: list[list[bool]] = data["visibilities"]
         self.centers: list[list[list[float]]] = data["centers"]
         self.zoom_factors: list[list[float]] = data["zoomFactors"]
         self.line_widths: list[list[float]] = data["lineWidths"]
@@ -119,6 +120,7 @@ def normalize_configs(configs: list[Config]) -> list[Config]:
         paths = []
         for path in config.path_settings.paths:
             paths += glob.glob(path, recursive=True)
+
         config.path_settings.paths = [os.path.abspath(path) for path in paths]
         config.path_settings.output_folder = os.path.abspath(
             config.path_settings.output_folder
@@ -130,6 +132,9 @@ def normalize_configs(configs: list[Config]) -> list[Config]:
         )
         config.subregion_settings.main_sizes = expand_list(
             expand_to, config.subregion_settings.main_sizes
+        )
+        config.subregion_settings.visibilities = expand_list(
+            expand_to, config.subregion_settings.visibilities
         )
         config.subregion_settings.cross_size_weigths = expand_list(
             expand_to, config.subregion_settings.cross_size_weigths
@@ -155,11 +160,15 @@ def normalize_configs(configs: list[Config]) -> list[Config]:
 
         for i, _ in enumerate(config.path_settings.paths):
             expand_to = max(
+                len(config.subregion_settings.visibilities[i]),
                 len(config.subregion_settings.cross_size_weigths[i]),
                 len(config.subregion_settings.centers[i]),
                 len(config.subregion_settings.zoom_factors[i]),
                 len(config.subregion_settings.line_widths[i]),
                 len(config.subregion_settings.colors[i]),
+            )
+            config.subregion_settings.visibilities[i] = expand_list(
+                expand_to, config.subregion_settings.visibilities[i]
             )
             config.subregion_settings.cross_size_weigths[i] = expand_list(
                 expand_to, config.subregion_settings.cross_size_weigths[i]
@@ -415,7 +424,10 @@ def main():
             surface, context = create_drawing(config, j, image_rect)
             draw_image(context, path, image_rect, image_rect, image_rect)
 
-            for k, subregion_rect in enumerate(subregion_rects[j]):
+            for k, visibility in enumerate(config.subregion_settings.visibilities[j]):
+                if not visibility:
+                    continue
+
                 zoomed_subregion_rect = zoomed_subregion_rects[j][k]
                 subregion_rect = subregion_rects[j][k]
                 line_width = config.subregion_settings.line_widths[j]
