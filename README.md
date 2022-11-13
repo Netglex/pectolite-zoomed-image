@@ -25,7 +25,7 @@ pip install -r requirements.txt
 There are already images in the folder *./exampleInput* and a configuration file *./config.json* available. These can be used for a quick test run by running the command:
 
 ```
-py zoomed-image.py
+python zoomed-image.py
 ```
 
 > :warning: Only **PNG images** can be currently used with this script.
@@ -80,7 +80,7 @@ The overall structure of the JSON file is an array consisting of `Config` object
 
 The script can be run just as described in the introduction. The script will automatically look for a *config.json* file in that case. It is also possible to run the script with a different or multiple configuration files:
 ```
-py zoomed-image.py config0.json config1.json
+python zoomed-image.py config0.json config1.json
 ```
 
 The paths can be absolute or relative.
