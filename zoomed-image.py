@@ -394,8 +394,6 @@ def create_drawing(
 
 def finish_drawing(surface: cairo.SVGSurface):
     logging.info("    Flush image.")
-    context = cairo.Context(surface)
-    context.translate(-50, -50)
     surface.finish()
     surface.flush()
 
